@@ -6,13 +6,13 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 15:22:39 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/05/14 18:14:14 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 12:21:23 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ignore_spaces(const char *str)
+static int	ignore_spaces(const char *str)
 {
 	int	j;
 
@@ -25,7 +25,7 @@ int		ignore_spaces(const char *str)
 	return (j);
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int	i;
 	int	count_sign;
@@ -47,5 +47,6 @@ int		ft_atoi(const char *str)
 		int_final = int_final * 10 + (str[i] - '0');
 		i++;
 	}
-	return (int_final * count_sign);
+	int_final = int_final * count_sign;
+	return (int_final);
 }

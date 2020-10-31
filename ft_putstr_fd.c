@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 14:39:18 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/05/14 18:22:23 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:48:52 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int		i;
 
+	if (!s)
+		return;
 	i = 0;
 	while (s[i])
 	{

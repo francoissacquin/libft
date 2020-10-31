@@ -6,14 +6,13 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 15:50:48 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/25 18:00:08 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 15:57:06 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-int		comb_len(const char *str1, const char *str2)
+static int	comb_len(const char *str1, const char *str2)
 {
 	int		i;
 	int		len;
@@ -34,23 +33,32 @@ int		comb_len(const char *str1, const char *str2)
 	return (len);
 }
 
-char	*ft_strjoin(const char *str1, const char *str2)
+static void	init_variables(int *i, int *j)
+{
+	*i = 0;
+	*j = 0;
+}
+
+char		*ft_strjoin(const char *str1, const char *str2)
 {
 	int		i;
 	int		j;
 	int		len;
 	char	*ptr;
 
+	if (!str1)
+		return ((char*)str2);
+	if (!str2)
+		return ((char*)str1);
 	len = comb_len(str1, str2);
 	if (!(ptr = (char*)malloc((len + 1) * sizeof(char))))
 		return (NULL);
-	i = 0;
+	init_variables(&i, &j);
 	while (str1[i])
 	{
 		ptr[i] = str1[i];
 		i++;
 	}
-	j = 0;
 	while (str2[j])
 	{
 		ptr[i + j] = str2[j];

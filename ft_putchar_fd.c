@@ -6,12 +6,11 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 14:31:41 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/05/14 18:21:15 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 11:27:01 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

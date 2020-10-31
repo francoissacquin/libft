@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 12:53:26 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/27 11:26:26 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 12:55:09 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char			**ft_split(char const *s, char c)
 	char	*temp;
 
 	i = ft_strlen(s);
-	if (!(split = malloc((i + 1) * sizeof(char))))
+	if (!(split = malloc((i + 1) * sizeof(char))) || !s)
 		return (NULL);
 	if (!(temp = malloc((i + 1) * sizeof(char))))
 		return (NULL);

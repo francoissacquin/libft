@@ -6,12 +6,11 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 15:34:35 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/05/14 18:25:40 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 11:31:08 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t length)
 {

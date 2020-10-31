@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 17:47:41 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/27 11:59:57 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 16:33:21 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,25 @@ static void	nb_is_neg(int *n, int *i, char *ptr)
 	}
 }
 
+static int	integer_size(int n)
+{
+	int		i;
+
+	i = 0;
+	if (n < 0)
+	{
+		n = n * -1;
+		i = 1;
+	}
+	while ((n / 10) > 0)
+	{
+		i++;
+		n = n / 10;
+	}
+	i++;
+	return (i);
+}
+
 char		*ft_itoa(int n)
 {
 	char	*ptr;
@@ -55,7 +74,7 @@ char		*ft_itoa(int n)
 
 	i = 0;
 	edge_case(&n, &edge);
-	if (!(ptr = (char*)malloc(sizeof(char) * 12)))
+	if (!(ptr = (char*)malloc(sizeof(char) * (integer_size(n) + 1))))
 		return (0);
 	nb_is_neg(&n, &i, ptr);
 	size = num_len(n);

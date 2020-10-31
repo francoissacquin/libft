@@ -6,13 +6,13 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 14:51:43 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/13 00:02:57 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 11:27:59 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	num_size(long nb)
+static long		num_size(long nb)
 {
 	long	size;
 
@@ -25,7 +25,7 @@ long	num_size(long nb)
 	return (size);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	long	n_long;
 	long	size;

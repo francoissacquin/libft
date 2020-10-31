@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 19:13:00 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/26 15:59:04 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/10/30 12:35:02 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char			*ft_strtrim(const char *s1, const char *set)
 	char			*ptr;
 	size_t			size;
 
+	if (!s1 || !set)
+		return (NULL);
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
 	size = ft_strlen(s1);
