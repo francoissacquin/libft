@@ -5,55 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 12:53:26 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/30 12:55:09 by fsacquin         ###   ########.fr       */
+/*   Created: 2020/11/02 13:50:01 by fsacquin          #+#    #+#             */
+/*   Updated: 2020/11/02 15:55:17 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		split_init(int *i, int *index, int *abs)
+static int	split_size(char const *s, char c)
 {
-	*i = -1;
-	*index = 0;
-	*abs = 0;
+	int		final_size;
+	int		j;
+
+	final_size = 0;
+	j = 0;
+	if (*s == '\0')
+		return (0);
+	while (*s != '\0')
+	{
+		if (*s == c)
+			j = 0;
+		else if (j == 0)
+		{
+			j = 1;
+			final_size++;
+		}
+		s++;
+	}
+	return (final_size);
 }
 
-static char		*append_section(int *abs, int *index, char **split, char *temp)
+static int	temp_size(char const *s, char c, int i)
 {
-	temp[*abs] = '\0';
-	split[*index] = ft_strdup(temp);
-	temp[0] = '\0';
-	*index = *index + 1;
-	*abs = 0;
-	return (temp);
+	int		temp_len;
+
+	temp_len = 0;
+	while (s[i] && s[i] != c)
+	{
+		temp_len++;
+		i++;
+	}
+	return (temp_len);
 }
 
-char			**ft_split(char const *s, char c)
+static char	**send_help(char const **split, int abs)
+{
+	while (abs > 0)
+	{
+		abs--;
+		free((void *)split[abs]);
+	}
+	free(split);
+	return (NULL);
+}
+
+static char	**append_sections(char const *s, char **split, char c, int len)
 {
 	int		i;
 	int		abs;
 	int		index;
-	char	**split;
-	char	*temp;
 
-	i = ft_strlen(s);
-	if (!(split = malloc((i + 1) * sizeof(char))) || !s)
-		return (NULL);
-	if (!(temp = malloc((i + 1) * sizeof(char))))
-		return (NULL);
-	split_init(&i, &index, &abs);
-	temp[0] = '\0';
-	while (s[++i])
+	i = 0;
+	abs = 0;
+	while (s[i] && abs < len)
 	{
-		if (s[i] != c)
-			temp[abs++] = s[i];
-		if ((s[i] == c || s[i + 1] == '\0') && temp[0] != '\0')
+		index = 0;
+		while (s[i] == c)
+			i++;
+		split[abs] = (char *)malloc(sizeof(char) * temp_size(s, c, i) + 1);
+		if (split[i] == NULL)
+			return (send_help((char const **)split, abs));
+		while (s[i] && s[i] != c)
 		{
-			temp = append_section(&abs, &index, split, temp);
+			split[abs][index] = s[i];
+			index++;
+			i++;
 		}
+		split[abs][index] = '\0';
+		abs++;
 	}
-	free(temp);
-	split[index] = NULL;
+	split[abs] = 0;
 	return (split);
+}
+
+char		**ft_split(char const *s, char c)
+{
+	char	**split;
+	int		len;
+
+	if (!s)
+		return (NULL);
+	len = split_size(s, c);
+	if (!(split = (char **)malloc(sizeof(char *) * (len + 1))))
+		return (NULL);
+	return (append_sections(s, split, c, len));
 }
