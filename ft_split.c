@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 13:50:01 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/11/02 15:55:17 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/11/04 18:55:49 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ static int	split_size(char const *s, char c)
 	int		j;
 
 	final_size = 0;
-	j = 0;
+	j = 1;
 	if (*s == '\0')
 		return (0);
 	while (*s != '\0')
 	{
 		if (*s == c)
-			j = 0;
-		else if (j == 0)
-		{
 			j = 1;
+		else if (j == 1)
+		{
+			j = 0;
 			final_size++;
 		}
 		s++;

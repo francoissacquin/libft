@@ -6,7 +6,7 @@
 #    By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/13 16:18:04 by fsacquin          #+#    #+#              #
-#    Updated: 2020/11/02 15:59:46 by fsacquin         ###   ########.fr        #
+#    Updated: 2020/11/04 18:46:56 by fsacquin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,10 @@ OBJECTS = $(SOURCES:%.c=%.o)
 OBJECTS_BONUS = $(SOURCES_BONUS:%.c=%.o)
 
 all : $(NAME)
+
+so :
+	$(CC) $(CFLAGS) -fPIC $(SOURCES) -I$(HEADERS)
+	$(CC) -fPIC -o libft.so -shared $(OBJECTS)
 
 ${NAME} :
 		$(CC) $(CFLAGS) $(SOURCES) -I$(HEADERS)
