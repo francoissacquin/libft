@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 13:50:01 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/11/04 18:55:49 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/11/05 12:16:10 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	**send_help(char const **split, int abs)
 		abs--;
 		free((void *)split[abs]);
 	}
-	free(split);
+	free((void *)split);
 	return (NULL);
 }
 
@@ -73,7 +73,7 @@ static char	**append_sections(char const *s, char **split, char c, int len)
 		while (s[i] == c)
 			i++;
 		split[abs] = (char *)malloc(sizeof(char) * temp_size(s, c, i) + 1);
-		if (split[i] == NULL)
+		if (split[abs] == NULL)
 			return (send_help((char const **)split, abs));
 		while (s[i] && s[i] != c)
 		{
