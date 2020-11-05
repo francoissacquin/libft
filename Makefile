@@ -6,7 +6,7 @@
 #    By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/13 16:18:04 by fsacquin          #+#    #+#              #
-#    Updated: 2020/11/05 18:39:16 by fsacquin         ###   ########.fr        #
+#    Updated: 2020/11/05 18:50:07 by fsacquin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,4 +84,4 @@ fclean	:	clean
 
 re		:	fclean all
 
-.PHONY: all clean fclean re bonus so
+.PHONY: all clean fclean re bonus
