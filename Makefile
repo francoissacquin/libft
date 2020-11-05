@@ -6,7 +6,7 @@
 #    By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/13 16:18:04 by fsacquin          #+#    #+#              #
-#    Updated: 2020/11/04 18:46:56 by fsacquin         ###   ########.fr        #
+#    Updated: 2020/11/05 13:28:04 by fsacquin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,8 @@ SOURCES = ./ft_memset.c\
  ./ft_putendl_fd.c\
  ./ft_putnbr_fd.c
 
+SOURCES_BONUS = ./ft_lstnew.c
+
 OBJECTS = $(SOURCES:%.c=%.o)
 
 OBJECTS_BONUS = $(SOURCES_BONUS:%.c=%.o)
@@ -59,15 +61,15 @@ OBJECTS_BONUS = $(SOURCES_BONUS:%.c=%.o)
 all : $(NAME)
 
 so :
-	$(CC) $(CFLAGS) -fPIC $(SOURCES) -I$(HEADERS)
-	$(CC) -fPIC -o libft.so -shared $(OBJECTS)
+	$(CC) $(CFLAGS) -fPIC $(SOURCES) $(SOURCES_BONUS) -I$(HEADERS)
+	$(CC) -fPIC -o libft.so -shared $(OBJECTS) $(OBJECTS_BONUS)
 
 ${NAME} :
 		$(CC) $(CFLAGS) $(SOURCES) -I$(HEADERS)
 		ar rc $(NAME) $(OBJECTS)
 
 clean	:
-			rm -f $(OBJECTS)
+			rm -f $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean	:	clean
 			rm -f $(NAME)

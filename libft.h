@@ -6,7 +6,7 @@
 /*   By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 11:33:16 by fsacquin          #+#    #+#             */
-/*   Updated: 2020/10/30 19:20:15 by fsacquin         ###   ########.fr       */
+/*   Updated: 2020/11/05 13:23:41 by fsacquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+t_list				*ft_lstnew(void *content);
 
 #endif
