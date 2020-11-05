@@ -6,7 +6,7 @@
 #    By: fsacquin <fsacquin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/13 16:18:04 by fsacquin          #+#    #+#              #
-#    Updated: 2020/11/05 13:28:04 by fsacquin         ###   ########.fr        #
+#    Updated: 2020/11/05 18:39:16 by fsacquin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,21 +52,29 @@ SOURCES = ./ft_memset.c\
  ./ft_putendl_fd.c\
  ./ft_putnbr_fd.c
 
-SOURCES_BONUS = ./ft_lstnew.c
+SOURCES_BONUS = ./ft_lstnew.c\
+ ./ft_lstadd_front.c\
+ ./ft_lstsize.c\
+ ./ft_lstlast.c\
+ ./ft_lstadd_back.c\
+ ./ft_lstdelone.c\
+ ./ft_lstclear.c\
+ ./ft_lstiter.c\
+ ./ft_lstmap.c
 
 OBJECTS = $(SOURCES:%.c=%.o)
 
-OBJECTS_BONUS = $(SOURCES_BONUS:%.c=%.o)
+OBJECTS_BONUS = $(SOURCES_BONUS:.c=.o)
 
-all : $(NAME)
+all		: $(NAME)
 
-so :
-	$(CC) $(CFLAGS) -fPIC $(SOURCES) $(SOURCES_BONUS) -I$(HEADERS)
-	$(CC) -fPIC -o libft.so -shared $(OBJECTS) $(OBJECTS_BONUS)
-
-${NAME} :
+${NAME}	:
 		$(CC) $(CFLAGS) $(SOURCES) -I$(HEADERS)
 		ar rc $(NAME) $(OBJECTS)
+
+bonus	:
+		$(CC) $(CFLAGS) $(SOURCES) $(SOURCES_BONUS) -I$(HEADERS)
+		ar rc $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
 
 clean	:
 			rm -f $(OBJECTS) $(OBJECTS_BONUS)
