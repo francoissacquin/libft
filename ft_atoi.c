@@ -36,7 +36,7 @@ static long	analyze_sign(const char *str, int *i)
 	return (1);
 }
 
-int			ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int		i;
 	long	count_sign;
@@ -54,11 +54,11 @@ int			ft_atoi(const char *str)
 		if (int_final > 2147483647)
 			break ;
 	}
-	if ((int_final == 2147483648 && count_sign == -1) ||
-	int_final <= 2147483648)
-	{
-		int_final = int_final * count_sign;
+	int_final = int_final * count_sign;
+	if (int_final >= -2147483648 && int_final <= 2147483647)
 		return ((int)int_final);
-	}
-	return (count_sign == 1 ? -1 : 0);
+	if (count_sign == 1)
+		return (-1);
+	else
+		return (0);
 }

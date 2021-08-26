@@ -16,7 +16,7 @@ void	ft_bzero(void *s, size_t length)
 {
 	unsigned char	*destroy;
 
-	destroy = (unsigned char*)s;
+	destroy = (unsigned char *)s;
 	while (length > 0)
 	{
 		*destroy = 0;

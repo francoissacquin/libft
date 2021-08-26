@@ -19,13 +19,10 @@ char	*ft_strdup(const char *str)
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
-	if (!(ptr = (char*)malloc((i + 1) * sizeof(char))))
-	{
+	ptr = (char *)malloc((i + 1) * sizeof(char));
+	if (!(ptr))
 		return (0);
-	}
 	i = 0;
 	while (str[i])
 	{

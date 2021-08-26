@@ -35,11 +35,11 @@ static int	comb_len(const char *str1, const char *str2)
 
 static void	init_variables(int *i, int *j)
 {
-	*i = 0;
-	*j = 0;
+	*i = -1;
+	*j = -1;
 }
 
-char		*ft_strjoin(const char *str1, const char *str2)
+char	*ft_strjoin(const char *str1, const char *str2)
 {
 	int		i;
 	int		j;
@@ -47,23 +47,18 @@ char		*ft_strjoin(const char *str1, const char *str2)
 	char	*ptr;
 
 	if (!str1)
-		return ((char*)str2);
+		return ((char *)str2);
 	if (!str2)
-		return ((char*)str1);
+		return ((char *)str1);
 	len = comb_len(str1, str2);
-	if (!(ptr = (char*)malloc((len + 1) * sizeof(char))))
+	ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (!(ptr))
 		return (NULL);
 	init_variables(&i, &j);
-	while (str1[i])
-	{
+	while (str1[++i])
 		ptr[i] = str1[i];
-		i++;
-	}
-	while (str2[j])
-	{
+	while (str2[++j])
 		ptr[i + j] = str2[j];
-		j++;
-	}
 	ptr[i + j] = '\0';
 	return (ptr);
 }

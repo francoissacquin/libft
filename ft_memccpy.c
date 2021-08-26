@@ -18,8 +18,8 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t length)
 	unsigned char	*ptr2;
 	size_t			i;
 
-	ptr1 = (unsigned char*)src;
-	ptr2 = (unsigned char*)dest;
+	ptr1 = (unsigned char *)src;
+	ptr2 = (unsigned char *)dest;
 	i = 0;
 	while (length > i)
 	{

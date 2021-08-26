@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static long		num_size(long nb)
+static long	num_size(long nb)
 {
 	long	size;
 
@@ -25,7 +25,7 @@ static long		num_size(long nb)
 	return (size);
 }
 
-void			ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long	n_long;
 	long	size;

@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t length)
 	j = 0;
 	if (to_find[0] == '\0')
 	{
-		return ((char*)str);
+		return ((char *)str);
 	}
 	while (str[i] && i < length)
 	{
@@ -30,7 +30,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t length)
 		{
 			if (to_find[j + 1] == '\0')
 			{
-				return ((char*)str + i);
+				return ((char *)str + i);
 			}
 			j++;
 		}

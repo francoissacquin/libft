@@ -65,7 +65,7 @@ static int	integer_size(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*ptr;
 	int		size;
@@ -74,7 +74,8 @@ char		*ft_itoa(int n)
 
 	i = 0;
 	edge_case(&n, &edge);
-	if (!(ptr = (char*)malloc(sizeof(char) * (integer_size(n) + 1))))
+	ptr = (char *)malloc(sizeof(char) * (integer_size(n) + 1));
+	if (!(ptr))
 		return (0);
 	nb_is_neg(&n, &i, ptr);
 	size = num_len(n);

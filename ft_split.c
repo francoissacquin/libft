@@ -88,7 +88,7 @@ static char	**append_sections(char const *s, char **split, char c, int len)
 	return (split);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		len;
@@ -96,7 +96,8 @@ char		**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	len = split_size(s, c);
-	if (!(split = (char **)malloc(sizeof(char *) * (len + 1))))
+	split = (char **)malloc(sizeof(char *) * (len + 1));
+	if (!(split))
 		return (NULL);
 	return (append_sections(s, split, c, len));
 }
